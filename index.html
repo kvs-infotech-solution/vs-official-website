@@ -1,0 +1,223 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | KVS Infotech Solution</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+        <a href="index.html">KVS <span>Infotech</span>Solutions</a>
+    </div>
+
+    <button class="menu-toggle" id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="all-courses.html">Courses</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+</header>
+
+    <section class="hero" id="home">
+        <p class="tagline">YOUR DIGITAL GROWTH PARTNER</p>
+
+        <h1>We Build Digital<br>
+            <span>Experiences</span>
+        </h1>
+
+        <p class="description">
+            We create modern websites and powerful applications
+            to help your business grow in the digital world.
+        </p>
+
+        <a href="#services" class="btn">Explore Our Services →</a>
+    </section>
+
+
+
+
+
+
+
+<!-- OUR COURSES SECTION -->
+<section class="courses-section" id="courses">
+    <div class="courses-container">
+
+        <div class="courses-heading">
+            <p>OUR COURSES</p>
+            <h2>Explore Our Courses</h2>
+            <p>Build your skills and grow your career with us.</p>
+        </div>
+
+        <div class="courses-grid">
+
+            <div class="course-card">
+              <div class="course-icon">
+    <img src="images/data-science.jpg" alt="Data Science">
+</div>
+                <h3>Data Science</h3>
+                <p>Learn Python, data analysis and machine learning.</p>
+                <a href="course-details.html?id=data-science">View Details →</a>
+            </div>
+
+            <div class="course-card">
+               <div class="course-icon">
+    <img src="images/data-analytics.jpg" alt="Data Analytics">
+</div>
+                <h3>Data Analytics</h3>
+                <p>Discover insights through data analysis and visualization.</p>
+                <a href="course-details.html?id=data-analytics">View Details →</a>
+            </div>
+
+            <div class="course-card">
+               <div class="course-icon">
+    <img src="images/full-stack-development.jpg" alt="Full Stack Development">
+</div>
+                <h3>Full Stack Development</h3>
+                <p>Learn to build complete websites and web applications.</p>
+                <a href="course-details.html?id=full-stack-development">View Details →</a>
+            </div>
+
+            <div class="course-card">
+                <div class="course-icon">
+    <img src="images/cyber-security.jpg" alt="Cyber Security">
+</div>
+                <h3>Cyber Security</h3>
+                <p>Learn digital security and protection techniques.</p>
+                <a href="course-details.html?id=cyber-security">View Details →</a>
+            </div>
+
+            <div class="course-card">
+                <div class="course-icon">
+    <img src="images/sap.jpg" alt="SAP">
+</div>
+                <h3>SAP</h3>
+                <p>Explore enterprise software and business solutions.</p>
+                <a href="course-details.html?id=sap">View Details →</a>
+            </div>
+
+            <div class="course-card">
+                <div class="course-icon">
+    <img src="images/digital-marketing.jpg" alt="Digital Marketing">
+</div>
+                <h3>Digital Marketing</h3>
+                <p>Learn SEO, online marketing and digital promotion.</p>
+                <a href="course-details.html?id=digital-marketing">View Details →</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+  <section class="services" id="services">
+    <h2>Our Services</h2>
+    <p class="section-text">
+        Smart digital solutions to help your business grow.
+    </p>
+
+    <div class="service-container">
+
+        <div class="service-card">
+            <div class="service-icon">🌐</div>
+            <h3>Website Development</h3>
+            <p>
+                Modern, responsive and professional websites
+                designed to meet your business needs.
+            </p>
+            <a href="services.html" class="service-btn">Learn More</a>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">📱</div>
+            <h3>App Development</h3>
+            <p>
+                User-friendly mobile applications built to
+                deliver useful features and smooth experiences.
+            </p>
+            <a href="services.html" class="service-btn">Learn More</a>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">🎨</div>
+            <h3>UI/UX Design</h3>
+            <p>
+                Clean, attractive and intuitive designs for
+                websites and mobile applications.
+            </p>
+            <a href="services.html" class="service-btn">Learn More</a>
+        </div>
+
+    </div>
+</section>
+
+    <section class="about" id="about">
+        <h2>About KVS Infotech Solution</h2>
+        <p>We focus on building useful digital solutions through modern
+           web design and application development.</p>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Let's Build Something Great</h2>
+        <p>Have a project in mind? Let's connect.</p>
+       <a href="#contact" class="btn">Contact Us →</a>
+    </section>
+
+    <footer>
+        © 2026 KVS Infotech Solution. All rights reserved.
+    </footer>
+
+<script>
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  menuToggle.addEventListener("click", function () {
+    const isOpen = navLinks.classList.toggle("active");
+
+    menuToggle.setAttribute("aria-expanded", isOpen);
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Close navigation menu" : "Open navigation menu"
+    );
+
+   menuToggle.classList.toggle("is-open", isOpen);
+  });
+
+  navLinks.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      navLinks.classList.remove("active");
+      menuToggle.textContent = "☰";
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
+    });
+  });
+</script>
+</body>
+
+</body>
+</html>
+

@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Contact Us | KVS Infotech Solution</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+   
+<header class="navbar">
+    <div class="logo">KVS <span>Infotech</span>Solutions</div>
+
+    <button class="menu-toggle" id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="all-courses.html">Courses</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html" class="active">Contact Us</a>
+    </nav>
+</header>
+
+
+    <section class="contact-hero">
+        <h1>Contact Us</h1>
+        <p>Let's discuss your ideas and build something great together.</p>
+    </section>
+
+    <section class="contact-container">
+     
+<div class="contact-info">
+    <h2>Let's Start Your Career Journey</h2>
+    <p>Ready to build your future in IT? Connect with KVS Infotech Solution to explore our courses and training opportunities.</p>
+
+    <div class="contact-detail">
+        <span>🎓</span>
+        <div>
+            <h3>Course Admissions</h3>
+            <p>Get information about our courses, training and admission process.</p>
+        </div>
+    </div>
+
+    <div class="contact-detail">
+        <span>📚</span>
+        <div>
+            <h3>Explore Our Courses</h3>
+            <p>Data Science, Data Analytics, Full Stack Development, Cyber Security, SAP and Digital Marketing.</p>
+        </div>
+    </div>
+
+    <div class="contact-detail">
+        <span>✉️</span>
+        <div>
+            <h3>Have Questions?</h3>
+            <p>Fill out the enquiry form and tell us which course interests you.</p>
+        </div>
+    </div>
+</div>
+
+
+       <form class="contact-form" id="enquiryForm">
+    <h2>Course Admission Enquiry</h2>
+
+    <label for="name">Full Name</label>
+    <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Enter your full name"
+        required
+    >
+
+    <label for="email">Email Address</label>
+    <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Enter your email"
+        required
+    >
+
+    <label for="phone">Phone Number</label>
+    <input
+        type="tel"
+        id="phone"
+        name="phone"
+        placeholder="Enter your 10-digit mobile number"
+        pattern="[0-9]{10}"
+        maxlength="10"
+        required
+    >
+
+    <label for="course">Select Course</label>
+<select id="course" name="course" required>
+    <option value="">-- Select a Course --</option>
+    <option value="Data Science">Data Science</option>
+    <option value="Data Analytics">Data Analytics</option>
+    <option value="Full Stack Development">Full Stack Development</option>
+    <option value="Cyber Security">Cyber Security</option>
+    <option value="SAP">SAP</option>
+    <option value="Digital Marketing">Digital Marketing</option>
+    <option value="AI & Machine Learning">AI & Machine Learning</option>
+    <option value="Power BI">Power BI</option>
+    <option value="Tableau">Tableau</option>
+    <option value="Cloud Computing">Cloud Computing</option>
+    <option value="Python Programming">Python Programming</option>
+    <option value="Software Testing">Software Testing</option>
+    <option value="Core Java">Core Java</option>
+    <option value="Mobile App Development">Mobile App Development</option>
+    <option value="Advanced Excel">Advanced Excel</option>
+    <option value="Tally Prime with GST">Tally Prime with GST</option>
+</select>
+
+    <label for="message">Your Message</label>
+    <textarea
+        id="message"
+        name="message"
+        rows="5"
+        placeholder="Tell us about your enquiry"
+        required
+    ></textarea>
+
+    <button type="submit" class="btn">
+        Submit Enquiry →
+    </button>
+
+    <p id="enquiry-status" role="status"></p>
+</form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 KVS Infotech Solution. All rights reserved.</p>
+    </footer>
+
+
+
+
+<script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", function () {
+        const isOpen = navLinks.classList.toggle("active");
+
+        menuToggle.classList.toggle("is-open", isOpen);
+        menuToggle.setAttribute("aria-expanded", isOpen);
+        menuToggle.setAttribute(
+            "aria-label",
+            isOpen ? "Close navigation menu" : "Open navigation menu"
+        );
+    });
+
+    navLinks.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+            navLinks.classList.remove("active");
+            menuToggle.classList.remove("is-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Open navigation menu");
+        });
+    });
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+    emailjs.init({
+        publicKey: "7AzzWdMLXdergUf_D"
+    });
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedCourse = urlParams.get("course");
+    const courseDropdown = document.getElementById("course");
+
+    if (selectedCourse && courseDropdown) {
+        const matchingOption = Array.from(courseDropdown.options).find(
+            option => option.value.toLowerCase() === selectedCourse.toLowerCase()
+        );
+
+        if (matchingOption) {
+            courseDropdown.value = matchingOption.value;
+        }
+    }
+
+    const enquiryForm = document.getElementById("enquiryForm");
+    const submitButton = enquiryForm.querySelector('button[type="submit"]');
+    const enquiryStatus = document.getElementById("enquiry-status");
+
+    let isSending = false;
+
+    enquiryForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        if (isSending) {
+            return;
+        }
+
+        if (!enquiryForm.checkValidity()) {
+            enquiryForm.reportValidity();
+            return;
+        }
+
+        isSending = true;
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+        enquiryStatus.textContent = "Sending your enquiry...";
+
+        emailjs.sendForm(
+            "service_lvexgjn",
+            "template_yyymxp6",
+            enquiryForm
+        )
+        .then(function() {
+            enquiryStatus.textContent =
+                "Thank you! Your enquiry has been sent successfully.";
+
+            enquiryForm.reset();
+
+            const currentCourse = new URLSearchParams(
+                window.location.search
+            ).get("course");
+
+            if (currentCourse && courseDropdown) {
+                const option = Array.from(courseDropdown.options).find(
+                    item => item.value.toLowerCase() === currentCourse.toLowerCase()
+                );
+
+                if (option) {
+                    courseDropdown.value = option.value;
+                }
+            }
+        })
+        .catch(function(error) {
+            console.error("EmailJS error:", error);
+
+            enquiryStatus.textContent =
+                "Sorry, your enquiry could not be sent. Please try again.";
+        })
+        .finally(function() {
+            isSending = false;
+            submitButton.disabled = false;
+            submitButton.textContent = "Submit Enquiry →";
+        });
+    });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Services | KVS Infotech Solution</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  
+    <header class="navbar">
+    <div class="logo">KVS <span>Infotech</span>Solutions</div>
+
+    <button class="menu-toggle" id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="all-courses.html">Courses</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+</header>
+
+    <!-- Services Hero -->
+    <section class="services-hero">
+        <h1>Our Services</h1>
+        <p>
+            We provide smart digital solutions for your business.
+        </p>
+    </section>
+
+  <!-- Services Cards -->
+<section class="services-container">
+
+    <div class="service-card">
+        <div class="service-icon">🌐</div>
+        <h2>Website Development</h2>
+        <p>
+            We build modern, responsive and professional websites
+            that help businesses establish a strong online presence.
+        </p>
+
+        <ul>
+            <li>Business and portfolio websites</li>
+            <li>Responsive mobile-friendly layouts</li>
+            <li>Interactive website functionality</li>
+        </ul>
+
+        <a href="contact.html" class="service-btn">Enquire Now</a>
+    </div>
+
+    <div class="service-card">
+        <div class="service-icon">📱</div>
+        <h2>App Development</h2>
+        <p>
+            We develop user-friendly mobile applications
+            designed around business needs and user requirements.
+        </p>
+
+        <ul>
+            <li>Mobile application interfaces</li>
+            <li>Useful app features and functionality</li>
+            <li>API integration and app improvements</li>
+        </ul>
+
+        <a href="contact.html" class="service-btn">Enquire Now</a>
+    </div>
+
+    <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <h2>UI/UX Design</h2>
+        <p>
+            We create clean, attractive and easy-to-use
+            designs for websites and mobile applications.
+        </p>
+
+        <ul>
+            <li>Website and app interface design</li>
+            <li>Wireframes and interactive prototypes</li>
+            <li>User-friendly and responsive layouts</li>
+        </ul>
+
+        <a href="contact.html" class="service-btn">Enquire Now</a>
+    </div>
+
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            &copy; 2026 KVS Infotech Solution.
+            All rights reserved.
+        </p>
+    </footer>
+
+
+    
+<script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", function () {
+        const isOpen = navLinks.classList.toggle("active");
+
+        menuToggle.classList.toggle("is-open", isOpen);
+        menuToggle.setAttribute("aria-expanded", isOpen);
+        menuToggle.setAttribute(
+            "aria-label",
+            isOpen ? "Close navigation menu" : "Open navigation menu"
+        );
+    });
+
+    navLinks.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+            navLinks.classList.remove("active");
+            menuToggle.classList.remove("is-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Open navigation menu");
+        });
+    });
+</script>
+</body>
+
+</body>
+</html>

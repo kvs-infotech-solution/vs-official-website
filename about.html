@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | KVS Infotech Solution</title>
+    <meta name="description" content="Learn about KVS Infotech Solution, our IT training approach, and our mission to help students prepare for careers in the technology industry.">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">KVS <span>Infotech</span>Solutions</div>
+
+        <button class="menu-toggle" id="menuToggle"
+            aria-label="Open navigation menu"
+            aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="all-courses.html">Courses</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </header>
+
+
+    <!-- About Hero -->
+    <section class="hero about-hero">
+        <p class="tagline">GET TO KNOW US</p>
+
+        <h1>About <span>KVS Infotech</span></h1>
+
+        <p class="description">
+            Empowering students with IT skills, practical knowledge,
+            and the confidence to pursue a successful career
+            in the technology industry.
+        </p>
+    </section>
+
+
+    <!-- Who We Are -->
+    <section class="about-content">
+
+        <div class="about-box">
+            <p class="tagline">WHO WE ARE</p>
+
+            <h2>Building Skills. Shaping Careers.</h2>
+
+            <p>
+                KVS Infotech Solution focuses on helping students
+                develop the skills and knowledge needed to pursue
+                careers in the IT industry. Through IT training and
+                practical learning, we aim to prepare aspiring
+                professionals for opportunities in technology companies.
+            </p>
+        </div>
+
+        <div class="about-box">
+            <p class="tagline">OUR APPROACH</p>
+
+            <h2>Learn Today. Prepare for Tomorrow.</h2>
+
+            <p>
+                We believe that learning becomes more valuable when
+                students understand how to apply their knowledge.
+                Our focus is on building technical skills, encouraging
+                practical learning, and helping students prepare for
+                the expectations of the IT workplace.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- Mission and Vision -->
+    <section class="values">
+
+        <h2>Our Mission &amp; Vision</h2>
+
+        <div class="service-container">
+
+            <div class="service-card">
+                <h3>🎯 Our Mission</h3>
+
+                <p>
+                    To equip students with relevant IT skills,
+                    practical knowledge, and career preparation
+                    so they can confidently pursue job opportunities
+                    in the technology sector.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3>🚀 Our Vision</h3>
+
+                <p>
+                    To grow into a trusted IT organization that
+                    develops technology solutions while creating
+                    more learning and career opportunities for
+                    aspiring IT professionals.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3>💡 Our Commitment</h3>
+
+                <p>
+                    To encourage continuous learning, practical
+                    skill development, and professional growth
+                    as students work towards their IT career goals.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- How We Help Students -->
+    <section class="values">
+
+        <p class="tagline">YOUR CAREER JOURNEY</p>
+
+        <h2>How We Help Students</h2>
+
+        <div class="service-container">
+
+            <div class="service-card">
+                <h3>01. Learn IT Skills</h3>
+
+                <p>
+                    Explore technology courses designed to help
+                    you develop relevant technical knowledge.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3>02. Build Practical Knowledge</h3>
+
+                <p>
+                    Strengthen your understanding through
+                    practical learning and skill development.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3>03. Prepare for Opportunities</h3>
+
+                <p>
+                    Work towards your career goals and prepare
+                    to pursue suitable opportunities in IT companies.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Call To Action -->
+   
+
+<section class="contact about-cta">
+    <h2>Your IT Career Starts with a Step</h2>
+
+    <p>
+        Explore our courses and take the next step
+        towards building your future in technology.
+    </p>
+
+    <a href="services.html" class="btn">
+        Explore Our Courses →
+    </a>
+</section>
+
+<section class="about-contact-section">
+    <h3>Need Help Choosing the Right Course?</h3>
+
+    <p>
+        Have questions about our courses?
+        We're here to help you.
+    </p>
+
+    <div class="about-contact-cta">
+        <a href="contact.html" class="btn-contact">
+            Contact Us →
+        </a>
+    </div>
+</section>
+
+
+
+
+    <!-- Footer -->
+    <footer>
+        © 2026 KVS Infotech Solution. All rights reserved.
+    </footer>
+
+
+    <!-- Mobile Navigation -->
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", function () {
+            const isOpen = navLinks.classList.toggle("active");
+
+            menuToggle.classList.toggle("is-open", isOpen);
+
+            menuToggle.setAttribute("aria-expanded", isOpen);
+
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "Close navigation menu"
+                    : "Open navigation menu"
+            );
+        });
+
+        navLinks.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("active");
+                menuToggle.classList.remove("is-open");
+
+                menuToggle.setAttribute("aria-expanded", "false");
+
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Open navigation menu"
+                );
+            });
+        });
+    </script>
+
+</body>
+</html>
